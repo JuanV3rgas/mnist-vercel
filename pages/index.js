@@ -5,10 +5,13 @@ export default function Home() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Cambia aquí la URL a tu backend en Render
+  const BACKEND_URL = "https://mnist-backend-ajab.onrender.com";
+
   async function generate() {
     setLoading(true);
     setImages([]);
-    const res = await fetch(`/api/generate?digit=${digit}&n=5`);
+    const res = await fetch(`${BACKEND_URL}/generate?digit=${digit}&n=5`);
     const data = await res.json();
     setImages(data.images);
     setLoading(false);
@@ -24,7 +27,7 @@ export default function Home() {
           min="0"
           max="9"
           value={digit}
-          onChange={(e) => setDigit(e.target.value)}
+          onChange={(e) => setDigit(Number(e.target.value))}
         />
       </label>
       <button onClick={generate} style={{ marginLeft: 16 }}>
