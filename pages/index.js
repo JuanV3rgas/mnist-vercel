@@ -37,7 +37,7 @@ export default function Home() {
     >
       <div
         style={{
-          background: "#fff",
+          background: "#8dd6d1",
           borderRadius: 16,
           boxShadow: "0 4px 24px #0001",
           padding: "40px 32px",
